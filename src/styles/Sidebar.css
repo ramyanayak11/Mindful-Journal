@@ -1,0 +1,254 @@
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 60;
+  background-color: #d97706;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background-color: #92400e;
+  transform: scale(1.05);
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  backdrop-filter: blur(2px);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+  border-right: 3px solid #fbbf24;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  transition: transform 0.3s ease;
+  box-shadow: 4px 0 20px rgba(217, 119, 6, 0.1);
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem 1.5rem;
+  border-bottom: 2px solid #fde68a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #451a03;
+  margin: 0;
+}
+
+.close-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #78350f;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: #fde68a;
+  color: #451a03;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+}
+
+.nav-section {
+  margin-bottom: 2rem;
+}
+
+.nav-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #78350f;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+}
+
+.nav-item {
+  color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0.75rem;
+  margin-bottom: 0.25rem;
+  border: none;
+  background: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.nav-item:hover {
+  background-color: rgba(217, 119, 6, 0.1);
+  transform: translateX(4px);
+}
+
+.nav-item:hover::before {
+  width: 4px;
+}
+
+.nav-item-active {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: white;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+.nav-item-active::before {
+  width: 100%;
+}
+
+.nav-item-active .nav-item-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-item-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-item-label {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.nav-item-description {
+  font-size: 0.75rem;
+  color: #78350f;
+  line-height: 1.2;
+  opacity: 0.8;
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 2px solid #fde68a;
+  background-color: rgba(254, 252, 243, 0.8);
+}
+
+.quote-section {
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #78350f;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.quote-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #92400e;
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-open {
+    transform: translateX(0);
+  }
+  
+  .close-btn {
+    display: block;
+  }
+}
+
+/* Animation for nav items */
+.nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-item:nth-child(3) { animation-delay: 0.3s; }
+.nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-item {
+  animation: slideInLeft 0.4s ease-out both;
+}
